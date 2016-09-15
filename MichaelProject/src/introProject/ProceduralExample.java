@@ -11,7 +11,7 @@ public class ProceduralExample {
 	public static void main(String[]args){
 		//System.out.println("Hello World");
 		String[] names = {"Jillian","Joseph","Jordan"};
-		System.out.println("My name is " + names[0] + ".");
+		System.out.println("My name is " + names[0] + ". I am a" + years[0] + ".");
 	}
 }
 
