@@ -4,7 +4,7 @@
 package introProject;
 
 /**
- * @author Student 8
+ * @author Michael_Student_8
  *
  */
 public class ProceduralExample {
