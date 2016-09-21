@@ -1,23 +1,35 @@
-package unfairDiceSimulator;
+package dataTypes;
 
 import java.util.Random;
 
 public class MathRandom {
 
-	public static void main(String[] args) {
-		//		for(int index = 0; index < 10; index++){
-		//			System.out.println("Roll #"+(index+1)+
-		//					" Die is "+rollFairDie());
-		//		}
+	public static void main(String[] args){
 
-		for(int i = 0; i < 10; i++){
-			System.out.println(rollUnfairDie("odd"));
+		int[] results = new int[6];
+		//same as 
+		//int[] results = {0,0,0,0,0,0};
+		
+		int totalRolls=10000;
+		
+		for (int index = 0; index < totalRolls; index++){
+			int roll = rollUnfairDie("even");
+			System.out.println("Roll # "+ (index + 1) + " Die is " +roll);
+			results[roll-1]++;
+		}
+
+		for (int i=0; i<6;i++)
+		{
+			System.out.println( (i+1) + " was rolled " +  results[i] + " times. The percentage is " + (int)((double) results[i]/totalRolls * 100) + "%.") ;
 		}
 	}
 
 	public static int rollFairDie(){
-		Random gen = new Random();
-		return gen.nextInt(6)+1;
+		//	Random gen = new Random();
+		//	return gen.nextInt(6)+1;
+		double rand = Math.random(); //random double (0.1)
+		int roll = (int) (6*rand); // [0.5] (this is what above code does)
+		return roll+1;//0 becomes 1 and 5 becomes 6
 	}
 
 	public static int rollUnfairDie(String Bias){
@@ -67,5 +79,4 @@ public class MathRandom {
 
 		return -1;
 	}
-
 }
