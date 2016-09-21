@@ -55,13 +55,13 @@ public class MathRandom {
 
 		if (Bias == "even"){
 			Random gen = new Random();
-			int favorEvenRoll = gen.nextInt(9)+1;
+			int favorEvenRoll = gen.nextInt(9);
 			return favorEven[favorEvenRoll];
 		}
 
 		if (Bias == "odd"){
 			Random gen = new Random();
-			int favorOddRoll = gen.nextInt(9)+1;
+			int favorOddRoll = gen.nextInt(9);
 			return favorOdd[favorOddRoll];
 		}
 
