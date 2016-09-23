@@ -1,0 +1,19 @@
+
+public class deckSimulator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int repeat = 10;
+		for (int i = 0; i<repeat;i++){
+			System.out.println(cardPicker());
+		}
+	};
+
+	public static String cardPicker(){
+		String[] numberValue = {"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"};
+		String[] suitValue = {"Diamond","Clubs","Hearts","Spades"};
+		int randNumber = (int)(Math.random() *13);
+		int randSuit = (int)(Math.random()*4);
+		return "Your card is " + numberValue[randNumber] + " of " + suitValue[randSuit] + ".";
+	}
+}
