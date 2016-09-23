@@ -1,17 +1,17 @@
-package magpie;
-
+package chatBot;
 
 import java.util.Scanner;
 
-public class StringPractice {
+public class MichaelMain {
 
 	static Scanner input;
 	static String user;
-	static int lineCount;
+	static boolean inLoop;
+	static String response;
+	static Topic school;
 
 	public static void main(String[] args) {
-		createAScanner();
-		lineCount=0;
+		createTopics();
 		promptName();
 		talkForever();
 	}
@@ -24,8 +24,18 @@ public class StringPractice {
 	}
 
 	public static void talkForever(){
-		while (1==1){
-			promptInput();
+		inLoop=true;
+		while (inLoop){
+			print("Greetings, " + user + ". How are you?");
+			response = getInput();
+			if (response.indexOf("good") >= 0){
+				print("I'm so happy you are good.");
+			}else if(response.indexOf("school") >= 0){
+				inLoop = false;//exit this loop
+				school.talk();
+			}else{
+				print("I'm sorry. I don't understand you.");
+			}
 		}
 	}
 
@@ -34,8 +44,14 @@ public class StringPractice {
 		String userInput = input.nextLine();
 		print("You typed:" + userInput);
 	}
-	public static void createAScanner() {
+	
+	public static void createTopics() {
 		input = new Scanner(System.in);
+		school = new School();
+	}
+	
+	public static String getInput(){
+		return input.nextLine();
 	}
 
 	public static void print(String s){
