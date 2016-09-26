@@ -28,7 +28,7 @@ public class MichaelMain {
 		while (inLoop){
 			print("Greetings, " + user + ". How are you?");
 			response = getInput();
-			if (response.indexOf("good") >= 0){
+			if (findKeyword(response, "good", 0)){
 				print("I'm so happy you are good.");
 			}else if(response.indexOf("school") >= 0){
 				inLoop = false;//exit this loop
@@ -39,17 +39,49 @@ public class MichaelMain {
 		}
 	}
 
+	public static boolean findKeyword(String searchString, String key, int startIndex) {
+		// TODO Auto-generated method stub
+		//delete white space
+		String phrase = searchString.trim();
+		//set to lowercase
+		phrase = phrase.toLowerCase();
+		key = key.toLowerCase();
+		//find postion of key
+		int psn = phrase.indexOf(key);
+		//while looking for the word until you find the right context
+		while (psn >= 0){
+			String before = " ";
+			String after = " ";
+			// if the phrase does not end with this word
+			if (psn + key.length() < phrase.length()){
+				after = phrase.substring((psn + key.length()) , (psn+key.length()+1)).toLowerCase();
+			}
+			
+			if (psn > 0){
+				before = phrase.substring(psn-1,psn).toLowerCase();
+			}
+			
+			if (before.compareTo("a") < 0 && after.compareTo("a") < 0 ){
+				return true;
+			}
+			// in case the keyword was not found yet, check the rest of the string.
+			
+			psn = phrase.indexOf(key,psn+1);
+		}
+		return false;
+	}
+
 	private static void promptInput(){
 		print(user + ", try inputting a String!");
 		String userInput = input.nextLine();
 		print("You typed:" + userInput);
 	}
-	
+
 	public static void createTopics() {
 		input = new Scanner(System.in);
 		school = new School();
 	}
-	
+
 	public static String getInput(){
 		return input.nextLine();
 	}
