@@ -28,7 +28,7 @@ public class MichaelMain {
 		while (inLoop){
 			print("Greetings, " + user + ". How are you?");
 			response = getInput();
-			if (findKeyword(response, "good", 0)){
+			if (findKeyword(response, "good", 0) >= 0){
 				print("I'm so happy you are good.");
 			}else if(response.indexOf("school") >= 0){
 				inLoop = false;//exit this loop
@@ -39,15 +39,21 @@ public class MichaelMain {
 		}
 	}
 
-	public static boolean findKeyword(String searchString, String key, int startIndex) {
+	public static int findKeyword(String searchString, String key, int startIndex) {
 		// TODO Auto-generated method stub
 		//delete white space
 		String phrase = searchString.trim();
 		//set to lowercase
 		phrase = phrase.toLowerCase();
 		key = key.toLowerCase();
-		//find postion of key
+
+		//print("The phrase is " + phrase);
+		//print("The key is " + key);
+
+		//find position of key
 		int psn = phrase.indexOf(key);
+
+		//print("The position found is " +psn);
 		//while looking for the word until you find the right context
 		while (psn >= 0){
 			String before = " ";
@@ -55,22 +61,54 @@ public class MichaelMain {
 			// if the phrase does not end with this word
 			if (psn + key.length() < phrase.length()){
 				after = phrase.substring((psn + key.length()) , (psn+key.length()+1)).toLowerCase();
+				//print("The character after " + key + "is" + after);
 			}
-			
+
 			if (psn > 0){
 				before = phrase.substring(psn-1,psn).toLowerCase();
+				//print("The character before " + key + "is" + before);
 			}
-			
+
 			if (before.compareTo("a") < 0 && after.compareTo("a") < 0 ){
-				return true;
+				//print(key + "was found at " +psn);
+
+				if (noNegations(phrase,psn)){
+					return psn;
+				}
 			}
 			// in case the keyword was not found yet, check the rest of the string.
-			
+
 			psn = phrase.indexOf(key,psn+1);
+			//print(key + "was not found." + "Checking" +psn);
 		}
-		return false;
+		return -1;
 	}
 
+	/**helper method - a method that contributes functionality to another method
+	* very common when you need to do the same thing repeatedly.
+	* They can help make methods more readable
+	* This method if private it is only used by the method it is helping
+	*/
+	
+	private static boolean noNegations(String phrase, int index){
+		//check for "NO" (3 characters);
+		//check to see if there is space for the word
+		// "NO" to be in front of the index
+		if ((index - 3) >= 0 && phrase.substring(index-3,index).equals("no")){
+			return false;
+		}
+		if ((index - 4) >= 0 && phrase.substring(index-4,index).equals("not")){
+			return false;
+		}
+		if ((index - 6) >= 0 && phrase.substring(index-6,index).equals("never")){
+			return false;
+		}
+		if ((index - 4) >= 0 && phrase.substring(index-4,index).equals("n't")){
+			return false;
+		}
+		return true;
+	}
+	
 	private static void promptInput(){
 		print(user + ", try inputting a String!");
 		String userInput = input.nextLine();
