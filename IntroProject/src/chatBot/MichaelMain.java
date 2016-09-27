@@ -9,6 +9,7 @@ public class MichaelMain {
 	static boolean inLoop;
 	static String response;
 	static Topic school;
+	static Topic like;
 
 	public static void main(String[] args) {
 		createTopics();
@@ -30,14 +31,16 @@ public class MichaelMain {
 			response = getInput();
 			if (findKeyword(response, "good", 0) >= 0){
 				print("I'm so happy you are good.");
-			}else if(response.indexOf("school") >= 0){
+			}else if(findKeyword(response,"school",0) >= 0){
 				inLoop = false;//exit this loop
 				school.talk();
-			}else{
+			}else if(findKeyword(response,"like",0) >= 0){
+				inLoop = false;
+				like.talk();
+			}else
 				print("I'm sorry. I don't understand you.");
 			}
 		}
-	}
 
 	public static int findKeyword(String searchString, String key, int startIndex) {
 		// TODO Auto-generated method stub
@@ -118,6 +121,7 @@ public class MichaelMain {
 	public static void createTopics() {
 		input = new Scanner(System.in);
 		school = new School();
+		like = new MichaelLike();
 	}
 
 	public static String getInput(){
