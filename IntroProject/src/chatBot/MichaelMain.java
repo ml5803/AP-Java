@@ -177,5 +177,7 @@ public class MichaelMain {
 			System.out.println("word1 is before word2");
 		}
 	}
+	
+	
 }
 
