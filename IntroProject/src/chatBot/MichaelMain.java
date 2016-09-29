@@ -10,7 +10,8 @@ public class MichaelMain {
 	static String response;
 	static Topic school;
 	static Topic like;
-
+	static Topic hello;
+	
 	public static void main(String[] args) {
 		createTopics();
 		promptName();
@@ -37,6 +38,8 @@ public class MichaelMain {
 			}else if(findKeyword(response,"like",0) >= 0){
 				inLoop = false;
 				like.talk();
+			}else if (findKeyword(response,"hello",0) >=0){
+				
 			}else
 				print("I'm sorry. I don't understand you.");
 			}
@@ -122,6 +125,7 @@ public class MichaelMain {
 		input = new Scanner(System.in);
 		school = new School();
 		like = new MichaelLike();
+		hello = new Hello();
 	}
 
 	public static String getInput(){
