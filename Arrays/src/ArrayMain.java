@@ -3,17 +3,47 @@ public class ArrayMain {
 	public static void main(String[] args) {
 		//This is how you time how quickly a computer processes information;
 		long startTime = System.currentTimeMillis();
+		
+		SampleElement sample = new SampleElement(10);
+		sample.increase();
+		System.out.println("The same element has " + "a number equal to " + sample.getNumber());
+		
+		
+		long endTime = System.currentTimeMillis();
+		System.out.println("Completed time in " + (endTime-startTime) + " milliseconds");
+	}
+	
+	private static void passByValueDemonstration(){
 		String[] someStrings = new String[100];
 		populateArray(someStrings);
 		
+		//In this method, we pass the ELEMENT
+		//(a variable) not the array so no change will be made
+		// to escape -> use / 
+		System.out.println("Before \"changeString\"" + someStrings[99]);
 		changeString(someStrings[99]);
+		System.out.println("After " + someStrings[99]);
 		
-		printArray(someStrings);
-		long endTime = System.currentTimeMillis();
-
-		System.out.println("Completed time in " + (endTime-startTime) + " milliseconds");
+		System.out.println("Before \"changeArray\"" + someStrings[99]);
+		changeArray(someStrings);
+		System.out.println("After " + someStrings[99]);
+		
+		System.out.println("Before \"changeArrayElements\" " + someStrings[99]);
+		changeArrayElements(someStrings,99);
+		System.out.println(someStrings[99]);
+		
 	}
 
+	private static void changeArrayElements(String[] someStrings, int i){
+		someStrings[i]="new item" + (i+1);
+	}
+	
+	private static void changeArray(String[] someStrings){
+		someStrings= new String[100];
+		for (int i=0;i<someStrings.length;i++){
+			someStrings[i]= "new item " + (i+1);
+		}
+	}
 	private static void changeString(String s){
 		s = "This string has been changed";
 	}
