@@ -3,11 +3,8 @@ public class ArrayMain {
 	public static void main(String[] args) {
 		//This is how you time how quickly a computer processes information;
 		long startTime = System.currentTimeMillis();
-		
-		SampleElement sample = new SampleElement(10);
-		sample.increase();
-		System.out.println("The same element has " + "a number equal to " + sample.getNumber());
-		
+
+		ArrayTests.printStringArray(ArrayTests.cardGen());
 		
 		long endTime = System.currentTimeMillis();
 		System.out.println("Completed time in " + (endTime-startTime) + " milliseconds");
