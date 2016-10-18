@@ -9,10 +9,10 @@ public class ArrayTests {
 		return arr;
 	}
 	
-	public static int[] populateArrayRandom(){
-		int[] arr = new int[50];
-		for(int i: arr){
-			i = (int)(Math.random()*123);
+	public static int[] populateArrayRandom(int length, int randomNum){
+		int[] arr = new int[length];
+		for(int i = 0; i<arr.length; i++){
+			arr[i] = (int) (Math.random() * (double)randomNum);
 		}
 		return arr;
 	}
@@ -22,30 +22,27 @@ public class ArrayTests {
 		String[] suits = {" of Diamonds", " of Clubs ", " of Hearts ", " of Spades"};
 		String[] numbers = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
 		
-		/*for(int s = 0; s<suits.length; s++){
-			for (int n = 0; n < numbers.length; n++){
-				cards[(s*n)] = numbers[n] + suits[s];
-			}
-		}*/
-	    int sCount = 0;
-		int nCount = 0;
-		for (int c = 0; c<cards.length; c++){
-			if(c<13){
+		int i = 0;
+		int sCount = 0;
+		while (i<cards.length){
+			if(i<13){
 				sCount=0;
 			}
-			
-			if (c<26 && c>=12){
+			if (i>=13 && i<26){
 				sCount=1;
 			}
-			
-			if (c<39 && c>=25){
+			if (i>=26 && i<39){
 				sCount=2;
 			}
-			
+			if (i>=39){
+				sCount=3;
+			}
 			for (int n = 0; n < numbers.length; n++){
-				cards[c] = numbers[n] + suits[sCount];
+				cards[i] = numbers[n] + suits[sCount];
+				i++;
 			}
 		}
+		
 		return cards;
 	}
 	
