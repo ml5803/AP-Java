@@ -4,6 +4,8 @@ public class ArrayMain {
 		//This is how you time how quickly a computer processes information;
 		long startTime = System.currentTimeMillis();
 
+		ArrayTests.printIntArray(ArrayTests.populateArray50());
+		ArrayTests.printIntArray(ArrayTests.populateArrayRandom(50, 100));
 		ArrayTests.printStringArray(ArrayTests.cardGen());
 		
 		long endTime = System.currentTimeMillis();
