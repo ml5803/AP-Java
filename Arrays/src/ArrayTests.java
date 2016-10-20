@@ -42,8 +42,26 @@ public class ArrayTests {
 				i++;
 			}
 		}
-		
 		return cards;
+	}
+	
+	public static int[] makeDieArray(int length){
+		int[] dieArr = new int[length];
+		
+		for (int i = 0; i < dieArr.length;i++){
+			int firstRoll = (int)((Math.random() * 6.0) + 1);
+			int secondRoll = (int)((Math.random() * 6.0) + 1);
+			dieArr[i] = firstRoll + secondRoll;
+		}
+		return dieArr;
+	}
+	
+	public static int[] populateResultArray(int[] numRolled){
+		int[] results = new int[11];
+		for (int d = 0; d<numRolled.length;d++){
+			results[numRolled[d]-2]++;
+		}
+		return results;
 	}
 	
 	public static void printIntArray(int[] intArr){
