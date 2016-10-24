@@ -42,9 +42,6 @@ public class NineMethods {
 		return searchValue < arr[begin+end]/2;
 	}
 
-
-
-
 	public static int searchSorted(int[] sortedArrayToSearch, int key){
 		/**
 		 * this method is exactly like the one above, except the parameter sortedArrayToSearch will
@@ -66,6 +63,19 @@ public class NineMethods {
 			}
 		}
 		return -1;
+	}
+	
+	public static void cycleThrough(int[] arr, int n){
+		for (int i = 0; i < n; i++){
+			cycleOnce(arr);
+		}
+	}
+
+	private static void cycleOnce(int[] array) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < array.length-1; i++){
+			
+		}
 	}
 
 }
