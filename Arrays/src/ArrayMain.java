@@ -99,4 +99,19 @@ public class ArrayMain {
 			System.out.println(s);
 		}
 	}
+	
+	/**
+	 * returns number of elements less than d
+	 * @param arr
+	 * @param num
+	 */
+	public static int countUnderBound(double[] arr, double d){
+		int count=0;
+		for(int i= 0; i<arr.length; i++){
+			if (arr[i]<d){
+				count++;
+			}
+		}
+		return count;
+	}
 }
