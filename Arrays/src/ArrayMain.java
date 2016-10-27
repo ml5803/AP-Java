@@ -10,7 +10,7 @@ public class ArrayMain {
 		//ArrayTests.printIntArray(ArrayTests.populateResultArray(ArrayTests.makeDieArray(1000)));
 		//ArrayTests.printStringArray(ArrayTests.cardGen());
 
-		int [] arr = {1,3,2,3,3,6,7};
+		int [] arr = {0,2,4,3,5,8,9};
 		System.out.println(""+longestConsecutiveSequence(arr));
 		//int [] subArr = getSubArray(arr,12,16);
 		//contains(arr,subArr);
@@ -164,7 +164,7 @@ public class ArrayMain {
        
         int longestConsec =1;
         int newConsec =1;
-        
+        		
         for (int i = 0; i<array1.length-1; i++){
         	if(array1[i]+1==array1[i+1]){
         		newConsec++;
