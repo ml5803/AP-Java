@@ -1,3 +1,4 @@
+
 package caveExplorer;
 
 public class CaveExplorer {
@@ -15,4 +16,6 @@ public class CaveExplorer {
 	private String defaultContent;
 	private CaveRoom[] borderingRooms;
 	private Door[] doors;
+	
+	
 } 
