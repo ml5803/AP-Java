@@ -1,7 +1,5 @@
 package caveExplorer;
 
-import java.util.Scanner;
-
 public class CaveRoom {
 
 	private String description;
@@ -25,10 +23,7 @@ public class CaveRoom {
 		
 		borderingRooms = new CaveRoom[4];
 		doors = new Door[4];
-		for(int i = 0 ; i < borderingRooms.length; i++){
-			borderingRooms[i] = null;
-			doors[i] = null;
-		}
+
 		setDirections();
 	}
 
@@ -42,7 +37,7 @@ public class CaveRoom {
 		}else{
 			for(int dir = 0; dir < doors.length; dir++){
 				if(doors[dir] != null){
-					directions += "\n   There is a "+doors[dir].getDescription()+" to "+toDirection(dir)+". "+doors[dir].getDetails();
+				   directions += "\n   There is a "+doors[dir].getDescription()+" to "+toDirection(dir)+". "+doors[dir].getDetails();
 				}
 			}
 		}
@@ -108,6 +103,11 @@ public class CaveRoom {
 
 	public void setDescription(String string) {
 		description = string;
+	}
+
+	public void interpretInput(String input) {
+		
+		
 	}
 
 }
