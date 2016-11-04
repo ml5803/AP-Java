@@ -3,13 +3,15 @@ import java.util.Arrays;
 public class Practice {
 
 	public static void main(String[] args) {
-		
+
 		boolean [][] mines = new boolean[6][6];
 		createMines(mines,10);
 		String[][] field = new String[mines.length][mines[0].length];
-		
+
 		matchValues(field, mines);
-		printPic(field);
+		//printPic(field);
+		makeMap(3,3);
+		drawBox();
 	}
 
 	private static void matchValues(String[][] field, boolean[][] mines) {
@@ -28,19 +30,49 @@ public class Practice {
 	private static String countAdjacent(boolean[][] mines, int r, int c) {
 		// r and c represents coordinates of elements we are providing a string for
 		int count = 0;
-		//loop through row above to row below
-		for (int row = r-1; row <= r+1; row++){
-			//loop through col left to col right
-			for (int col = c-1 ; col <c+1; col++){
-				//exclude this element when counting
-				if(row!=r && col != c){
-					if (row >=0 && row < mines.length && col >= 0 && col < mines[row].length){
-						
-					}
-				}
-			}
+		//		//loop through row above to row below
+		//			for (int row = r-1; row <= r+1; row++){
+		//			//loop through col left to col right
+		//			for (int col = c-1 ; col <c+1; col++){
+		//				//exclude this element when counting
+		//				if(row!=r && col != c){
+		//					if (row >=0 && row < mines.length && col >= 0 && col < mines[row].length){
+		//						
+		//					}
+		//				}
+		//			}
+		//			
+		//			//this method only checks elements in the [][] so it is not necessary to verify they are valid
+		//		}
+
+		//		for (int row = 0; row < mines.length; row++){
+		//			//check taxi cab distance
+		//			for (int col = 0; col < mines[row].length; col++){
+		//				if (Math.abs(row-r)+Math.abs(col-c)==1 && mines[row][col]){
+		//					//check if true
+		//					count++;
+		//				}
+		//			}
+		//		}
+
+		//above
+		count+= validAndTrue(mines,r-1,c);
+		//below
+		count+= validAndTrue(mines,r+1,c);
+		//right
+		count+= validAndTrue(mines,r,c+1);
+		//left
+		count+= validAndTrue(mines,r,c-1);
+		return count +"";
+	}
+
+	private static int validAndTrue(boolean[][] mines, int i, int j) {
+		// TODO Auto-generated method stub
+		if(i>=0 && i < mines.length && j>=0 && j < mines[0].length && mines[i][j]){
+			return 1;
+		}else{
+			return 0;
 		}
-		return null;
 	}
 
 	private static void createMines(boolean[][] mines, int numberOfMines) {
@@ -62,7 +94,7 @@ public class Practice {
 		//print each row
 		for(int row = 1; row<pic.length; row++){
 			for (int col = 0; col<pic[row].length; col++){
-				pic[row][col] = "             ";
+				pic[row][col] = "      ";
 			}
 		}
 
@@ -113,5 +145,20 @@ public class Practice {
 			}
 			System.out.println();
 		}
+	}
+
+	public static void makeMap(int length, int width){
+		String[][] map = new String[length][width];
+		for (int k = 0; k<)
+		
+		for(int i = 0; i<map.length; i++){
+			for (int j = 0; j<map[0].length; j++){
+				System.out.print("__|");
+			}
+			System.out.println();
+		}
+	}
+	public static void drawBox(){
+
 	}
 }
