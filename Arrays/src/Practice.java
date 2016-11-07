@@ -11,6 +11,7 @@ public class Practice {
 		matchValues(field, mines);
 		//printPic(field);
 		makeMap(7,7);
+		makeMap3(3,3);
 	}
 
 	private static void matchValues(String[][] field, boolean[][] mines) {
@@ -163,6 +164,20 @@ public class Practice {
 			}
 			System.out.println();
 			//hi
+		}
+	}
+	
+	public static void makeMap3(int length, int width){
+		int mapLength = length *3;
+		int mapWidth = width *3;
+		String[][] map = new String[mapLength][mapWidth];
+		
+		for (int i = 0; i< mapLength; i++){
+			if (i == 0){
+				for(int j = 0; j < mapWidth; j++){
+					
+				}
+			}
 		}
 	}
 }
