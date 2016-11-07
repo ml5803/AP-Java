@@ -162,6 +162,7 @@ public class Practice {
 				System.out.print("__|");
 			}
 			System.out.println();
+			//hi
 		}
 	}
 }
