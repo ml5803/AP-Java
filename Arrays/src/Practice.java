@@ -10,7 +10,7 @@ public class Practice {
 
 		matchValues(field, mines);
 		//printPic(field);
-		makeMap(7,7);
+		//makeMap(7,7);
 		makeMap3(3,3);
 	}
 
@@ -172,12 +172,25 @@ public class Practice {
 		int mapWidth = width *3;
 		String[][] map = new String[mapLength][mapWidth];
 		
-		for (int i = 0; i< mapLength; i++){
-			if (i == 0){
-				for(int j = 0; j < mapWidth; j++){
-					
+		for (int row = 0; row< map[0].length; row++){
+			if (row == 0){
+				for(int j = 0; j <map.length; j++){
+					System.out.print(" __");
+				}
+				System.out.println();
+			}
+			for (int col = 0; col <= map.length; col++){
+				if (col % 3 == 0){
+					System.out.print("|");
+				}else if ((row+1)%3 == 0 && row!=0){
+					System.out.print(" __ ");
+				}else{
+					System.out.print("    ");
 				}
 			}
+			System.out.println();
+			
 		}
 	}
+	
 }
