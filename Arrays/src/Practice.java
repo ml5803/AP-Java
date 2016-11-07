@@ -183,7 +183,7 @@ public class Practice {
 				if (col % 3 == 0){
 					System.out.print("|");
 				}else if ((row+1)%3 == 0 && row!=0){
-					System.out.print(" __ ");
+					System.out.print("____");
 				}else{
 					System.out.print("    ");
 				}
