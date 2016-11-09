@@ -10,7 +10,7 @@ public class Practice {
 
 		matchValues(field, mines);
 		//printPic(field);
-		//makeMap(7,7);
+		makeMap(7,7);
 		makeMap3(3,3);
 	}
 

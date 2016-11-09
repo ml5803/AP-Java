@@ -10,6 +10,7 @@ public class CaveExplorer {
 	public static Inventory inventory;
 	
 	public static void main(String[] args){
+		in = new Scanner(System.in);
 		caves = new CaveRoom[5][5];
 		for(int r=0; r<caves.length;r++){
 			for(int c=0;c<caves[r].length;c++){
@@ -29,7 +30,7 @@ public class CaveExplorer {
 	public static void startExploring() {
 		while(true){
 			System.out.println(currentRoom.getDescription());
-			System.out.println("wyd fam xD");
+			System.out.println("Angry Mushrooms incoming.");
 			String input = in.nextLine();
 			currentRoom.interpretInput(input);
 		}
