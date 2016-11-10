@@ -18,6 +18,8 @@ public class CaveExplorer {
 			}
 		}
 		
+		caves[0][2]= new EventRoom("This is the room where the guy with a tail met you.");
+		new GameStartEvent();
 		currentRoom = caves[0][1];
 		currentRoom.enter();
 		caves[0][1].setConnection(CaveRoom.EAST,caves[0][2],new Door());
@@ -29,6 +31,7 @@ public class CaveExplorer {
 
 	public static void startExploring() {
 		while(true){
+			//System.out.println(inventory.getDescription());
 			System.out.println(currentRoom.getDescription());
 			System.out.println("Angry Mushrooms incoming.");
 			String input = in.nextLine();
@@ -37,4 +40,7 @@ public class CaveExplorer {
 		
 	}
 
+	public static void print(String str){
+		System.out.println(str);
+	}
 }

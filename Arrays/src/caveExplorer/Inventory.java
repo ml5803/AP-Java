@@ -5,7 +5,7 @@ public class Inventory {
 	private String map;
 	
 	public Inventory(){
-		hasMap = true;
+		hasMap = false;
 		updateMap();
 	}
 	
@@ -19,12 +19,14 @@ public class Inventory {
 		map +="___\n"; //3 underscores
 		for(CaveRoom[] row: CaveExplorer.caves){
 			//rows of text
-			text = "|";
+			//text = "|";
 			for (int i = 0; i <3; i++){
 				//a line of text for each room
 				for(CaveRoom cr: row){
 					if (cr.getDoor(CaveRoom.WEST)!=null && cr.getDoor(CaveRoom.WEST).isOpen()){
 						text = " ";
+					}else{
+						text+="|";
 					}
 					if (i==0){
 						text+="   ";// 3 spaces
@@ -44,7 +46,7 @@ public class Inventory {
 		}//last row
 	}
 
-	public String getDescription(){
+	public  String getDescription(){
 		if(hasMap){
 			return map;
 		}
