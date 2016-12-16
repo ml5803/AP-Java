@@ -5,6 +5,7 @@ import gui.screens.CoordinateScreen;
 
 public class MouseFollower extends GUIApplication {
 	//FIELDS
+	public static MouseFollower game;// only ONE exists
 	private CoordinateScreen cs;
 	
 	
@@ -21,7 +22,9 @@ public class MouseFollower extends GUIApplication {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new MouseFollower(800,600);
+		game = new MouseFollower(800,600);
+		Thread app = new Thread(game);
+		app.start();
 	}
 
 }
