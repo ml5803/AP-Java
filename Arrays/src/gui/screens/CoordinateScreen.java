@@ -1,6 +1,7 @@
 package gui.screens;
 
 import java.awt.Color;
+import java.awt.FontMetrics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import gui.Screen;
 import gui.components.Action;
 import gui.components.Button;
+import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
 
@@ -15,6 +17,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener {
 
 	private Button myButton;
 	private TextLabel text;
+	private TextArea area;
 	
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
@@ -22,10 +25,12 @@ public class CoordinateScreen extends Screen implements MouseMotionListener {
 	}
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		text = new TextLabel(20, 200, 500, 40, "Some text");
+		text = new TextLabel(10, 25, 500, 40, "Some text");
 		viewObjects.add(text);
+		area = new TextArea(400, 50, 300, 100, "This is really long text. It prints more than a single line. Looks good man :)");
+		viewObjects.add(area);
 		
-		myButton = new Button(40,50,100,30,"Button con un nombre largo",new Color(0,76,153), new Action(){
+		myButton = new Button(10,100,100,50,"Big button",new Color(0,76,153), new Action(){
 			public void act(){
 				//code for action will be in here.
 			}
