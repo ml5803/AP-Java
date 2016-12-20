@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import gui.Screen;
 import gui.components.Action;
 import gui.components.Button;
+import gui.components.Graphic;
 import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
@@ -18,6 +19,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener {
 	private Button myButton;
 	private TextLabel text;
 	private TextArea area;
+	private Graphic penguin;
 	
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
@@ -36,6 +38,9 @@ public class CoordinateScreen extends Screen implements MouseMotionListener {
 			}
 		});
 		viewObjects.add(myButton);
+		
+		penguin = new Graphic(30,30,100,100,"resources/sampleImages/penguin.jpg");
+		viewObjects.add(penguin);
 	}
 
 	public void mouseDragged(MouseEvent e) {
