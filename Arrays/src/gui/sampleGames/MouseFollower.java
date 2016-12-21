@@ -2,11 +2,13 @@ package gui.sampleGames;
 
 import gui.GUIApplication;
 import gui.screens.CoordinateScreen;
+import gui.screens.MyScreen;
 
 public class MouseFollower extends GUIApplication {
 	//FIELDS
 	public static MouseFollower game;// only ONE exists
-	private CoordinateScreen cs;
+	public static CoordinateScreen cs;
+	public static MyScreen screen;
 	
 	
 	public MouseFollower(int width, int height) {
@@ -17,6 +19,7 @@ public class MouseFollower extends GUIApplication {
 	@Override
 	public void initScreen() {
 		cs=new CoordinateScreen(getWidth(), getHeight());
+		screen = new MyScreen(800,600);
 		setScreen(cs);
 	}
 
@@ -25,6 +28,7 @@ public class MouseFollower extends GUIApplication {
 		game = new MouseFollower(800,600);
 		Thread app = new Thread(game);
 		app.start();
+		
 	}
 
 }
