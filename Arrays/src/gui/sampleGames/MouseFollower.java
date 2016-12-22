@@ -10,7 +10,6 @@ public class MouseFollower extends GUIApplication {
 	public static CoordinateScreen cs;
 	public static MyScreen screen;
 	
-	
 	public MouseFollower(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub

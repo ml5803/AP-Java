@@ -70,7 +70,6 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		if(myButton.isHovered(e.getX(), e.getY())){
 			myButton.act();
 		}	
-		System.out.println("I got called!");
 	}
 
 	@Override

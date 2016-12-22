@@ -45,6 +45,8 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 			addMouseListener(currentScreen.getMouseListener());
 			addMouseMotionListener(currentScreen.getMouseMotionListener());
 		}
+		
+		System.out.println("setScreen was called");
 	}
 	
 	public void run(){
