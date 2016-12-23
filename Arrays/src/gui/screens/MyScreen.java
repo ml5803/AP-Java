@@ -36,13 +36,19 @@ public class MyScreen extends Screen implements MouseMotionListener, MouseListen
 			public void act() {
 				hitCount++;
 				msg.setText("Ow, stop hurting me. You've hit me " + hitCount + " times already.");
+				img.setX(randGen(200,700));
+				img.setY(randGen(100,400));
+				System.out.println("This is cool");
 			}
 			
 		});
 		viewObjects.add(img);
 	}
 
-	
+	public int randGen(int lower, int upper){
+		return (int) (Math.random() * upper + lower);
+		
+	}
 	public MouseMotionListener getMouseMotionListener(){
 		return this;
 	}
