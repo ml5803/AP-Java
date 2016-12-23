@@ -17,7 +17,10 @@ import gui.sampleGames.MouseFollower;
 
 public class MyScreen extends Screen implements MouseMotionListener, MouseListener {
 	private TextArea msg;
+	private int hitCount;
+	private Color backgroundColor;
 	private ClickableGraphics img;
+	private Button background;
 	
 	public MyScreen(int width, int height) {
 		super(width, height);
@@ -25,10 +28,20 @@ public class MyScreen extends Screen implements MouseMotionListener, MouseListen
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		msg= new TextArea(200,100,200,200,"I'm a ninja, I teleport.");
+		
+		
+		msg= new TextArea(200,100,200,200,"I'm a ninja. I come to kill you.");
 		viewObjects.add(msg);
 		
-		img = new ClickableGraphics(300,300, "resources/sampleImages/ninja.png",);
+		img = new ClickableGraphics(300,300, "resources/sampleImages/ninja.png", new Action(){
+
+			public void act() {
+				hitCount++;
+				msg.setText("Ow, stop hurting me. You've hit me " + hitCount + " times already.");
+			
+			}
+			
+		});
 		viewObjects.add(img);
 	}
 
@@ -43,6 +56,9 @@ public class MyScreen extends Screen implements MouseMotionListener, MouseListen
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		if(img.isHovered(e.getX(), e.getY())){
+			img.act();
+		}	
 		
 	}
 
