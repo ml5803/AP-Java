@@ -28,8 +28,6 @@ public class MyScreen extends Screen implements MouseMotionListener, MouseListen
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		
-		
 		msg= new TextArea(200,100,200,200,"I'm a ninja. I come to kill you.");
 		viewObjects.add(msg);
 		
@@ -38,7 +36,6 @@ public class MyScreen extends Screen implements MouseMotionListener, MouseListen
 			public void act() {
 				hitCount++;
 				msg.setText("Ow, stop hurting me. You've hit me " + hitCount + " times already.");
-			
 			}
 			
 		});
