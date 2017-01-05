@@ -20,7 +20,7 @@ public class ClickableGraphics extends Graphic implements Clickable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ClickableGraphics(int x, int y, int scale, String imageLocation, Action action) {
+	public ClickableGraphics(int x, int y, double scale, String imageLocation, Action action) {
 		super(x, y, scale, imageLocation);
 		setAction(action);
 		// TODO Auto-generated constructor stub

@@ -45,7 +45,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	 *to implement later, after EnemyTeam implements MoleInterface
 	 */
 	public MoleInterface getAMole() {
-		return null;
+		return new Mole((int)(Math.random()*getWidth()),(int)(Math.random()*getHeight()));
 	}
 
 	@Override

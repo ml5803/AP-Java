@@ -48,7 +48,7 @@ public class Graphic implements Visible {
 	 * @param y
 	 * @param imageLocation
 	 */
-	public Graphic(int x, int y, int scale, String imageLocation) {
+	public Graphic(int x, int y, double scale, String imageLocation) {
 		this.x=x;
 		this.y=y;
 		loadedImages=false;
