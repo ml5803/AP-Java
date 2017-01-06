@@ -1,13 +1,12 @@
 package whackAMole;
 
-import gui.components.Action;
 import gui.components.ClickableGraphics;
 
 public class Mole extends ClickableGraphics implements MoleInterface {
 
 	private int appearanceTime;
 	public Mole(int x, int y) {
-		super(x, y, 1, "resources/sampleImages/mole.jpg");
+		super(x, y,.9, "resources/sampleImages/pen.png");
 		// TODO Auto-generated constructor stub
 	}
 

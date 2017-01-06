@@ -31,6 +31,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 		timeLabel = new TextLabel(360,40,80,40,"30.0");
 		viewObjects.add(timeLabel);
 		viewObjects.add(label);
+		viewObjects.add(player);
 	}
 
 
@@ -38,7 +39,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	 *to implement later, after Character Team implements PlayerInterface
 	 */
 	public PlayerInterface getAPlayer() {
-		return null;
+		return new Player();
 	}
 
 	/**
@@ -63,11 +64,11 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	}
 
 	private void appearNewMole() {
-		double chance = .1*(60-timeLeft)/60;
+		double chance = .1*((60-timeLeft)/60);
 		if(Math.random() < chance){
 			//create a mole
 			final MoleInterface mole = getAMole();
-			mole.setAppearanceTime((int)(500+(Math.random()*2000)));
+			mole.setAppearanceTime((int)(500+Math.random()*2000));
 			//tell mole what to do when clicked.
 			
 			mole.setAction(new Action(){
@@ -106,7 +107,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 		}
 		
 		timeLeft-=.1;
-		timeLabel.setText("" + (int)(timeLeft)*10.0/10.0);
+		timeLabel.setText("" + (int)(timeLeft*10)/10.0);
 	}
 
 	private void changeText(String string) {
