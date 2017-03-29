@@ -2,7 +2,7 @@ public class ArrayMain {
 
 	public static void main(String[] args) {
 		//This is how you time how quickly a computer processes information;
-		long startTime = System.currentTimeMillis();
+		//long startTime = System.currentTimeMillis();
 
 		//ArrayTests.printIntArray(ArrayTests.populateArray50());
 		//ArrayTests.printIntArray(ArrayTests.populateArrayRandom(50, 100));
@@ -10,14 +10,15 @@ public class ArrayMain {
 		//ArrayTests.printIntArray(ArrayTests.populateResultArray(ArrayTests.makeDieArray(1000)));
 		//ArrayTests.printStringArray(ArrayTests.cardGen());
 
-		int [] arr = {0,2,4,3,5,8,9};
-		System.out.println(""+longestConsecutiveSequence(arr));
+		//int [] arr = {0,2,4,3,5,8,9};
+		//System.out.println(""+longestConsecutiveSequence(arr));
 		//int [] subArr = getSubArray(arr,12,16);
 		//contains(arr,subArr);
 		
 		
-		long endTime = System.currentTimeMillis();
-		System.out.println("Completed time in " + (endTime-startTime) + " milliseconds");
+		//long endTime = System.currentTimeMillis();
+		//System.out.println("Completed time in " + (endTime-startTime) + " milliseconds");
+		
 	}
 
 	private static void passByValueDemonstration(){

@@ -31,17 +31,7 @@ public class MyScreen extends Screen implements MouseMotionListener, MouseListen
 		msg= new TextArea(200,100,200,200,"I'm a ninja. I come to kill you.");
 		viewObjects.add(msg);
 		
-		img = new ClickableGraphics(300,300, "resources/sampleImages/ninja.png", new Action(){
-
-			public void act() {
-				hitCount++;
-				msg.setText("Ow, stop hurting me. You've hit me " + hitCount + " times already.");
-				img.setX(randGen(200,700));
-				img.setY(randGen(100,400));
-				System.out.println("This is cool");
-			}
-			
-		});
+		img = new ClickableGraphics(300,300, "resources/sampleImages/ninja.png");
 		viewObjects.add(img);
 	}
 
